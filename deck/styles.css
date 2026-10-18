@@ -275,3 +275,7 @@ mark.ph { background: #fff3b0; color: #6b5200; outline: 2px dashed #e0b400; outl
 .cases { list-style: none; margin-top: 30px; display: grid; gap: 18px; max-width: 1240px; }
 .cases li { display: grid; grid-template-columns: 64px 1fr; align-items: start; font-size: 30px; line-height: 1.4; font-weight: 500; color: var(--ink-2); }
 .cases b { font-size: 34px; font-weight: 800; color: var(--accent); line-height: 1.25; }
+
+.table--tight { font-size: 24px; line-height: 1.35; }
+.table--tight td { padding: 16px 28px 16px 0; }
+.table--tight th { padding-bottom: 12px; }
