@@ -280,6 +280,11 @@ mark.ph { background: #fff3b0; color: #6b5200; outline: 2px dashed #e0b400; outl
 .player--small audio { width: 420px; height: 44px; }
 .player--small span { font-size: 20px; font-weight: 500; color: var(--ink-muted); }
 
+/* slide 12: three cases A/B/C */
+.cases { list-style: none; margin-top: 30px; display: grid; gap: 18px; max-width: 1240px; }
+.cases li { display: grid; grid-template-columns: 64px 1fr; align-items: start; font-size: 30px; line-height: 1.4; font-weight: 500; color: var(--ink-2); }
+.cases b { font-size: 34px; font-weight: 800; color: var(--accent); line-height: 1.25; }
+
 </style>
 </head>
 <body>
@@ -573,7 +578,11 @@ mark.ph { background: #fff3b0; color: #6b5200; outline: 2px dashed #e0b400; outl
           <div class="center">
             <p class="eyebrow">Vingrinājums 2 · Balso ar roku</p>
             <h2 class="headline headline--lg">Kurā situācijā ir pārkāpums?</h2>
-            <p class="lede">A. PM pārsūta klienta Excel ar darbinieku sarakstu uz savu Gmail, lai pabeigtu mājās. B. Izstrādātājs ieliek Jira ekrānuzņēmumu ar klienta lietotāja vārdu un personas kodu. C. Vecs projekts ar klientu datiem joprojām Drive, trīs gadus pēc nodošanas.</p>
+            <ol class="cases">
+              <li><b>A</b><span>PM pārsūta klienta Excel ar darbinieku sarakstu uz savu Gmail, lai pabeigtu mājās.</span></li>
+              <li><b>B</b><span>Izstrādātājs ieliek Jira ekrānuzņēmumu ar klienta lietotāja vārdu un personas kodu.</span></li>
+              <li><b>C</b><span>Vecs projekts ar klientu datiem joprojām Drive, trīs gadus pēc nodošanas.</span></li>
+            </ol>
             <div class="build" data-build="1" data-motion="fade-up">
               <p class="lede"><strong class="accent">Visās trīs.</strong> Un visas trīs atrisina viens ieradums: ja redzi personas datus tur, kur tiem nav jābūt, saki tajā pašā dienā.</p>
             </div>
