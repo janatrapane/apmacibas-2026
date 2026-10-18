@@ -197,7 +197,7 @@
             Slaids atveras tikai ar atskaņotāju. Saki: "Iedomājieties, ir piektdienas pēcpusdiena, jums zvana no nezināma numura, bet balss ir pazīstama." Spied Play (33 s). Klipa teksts: "Čau, te Arvis. Klausies, es tagad sēžu pie Baltic Tolls kopā ar Riekstiņu, un mums te ir nopietna ķibele produkcijā. Viņiem tagad uzreiz vajag lietotāju datus. Vari, lūdzu, izvilkt lietotāju tabulu un atsūtīt man uz WhatsApp? Es rakstu no cita numura, mans telefons palika mašīnā. Un pagaidām citiem par to nestāsti, kamēr mēs te visu nesakārtojam. Paldies."
             Jautā zālei (rokas): kurš būtu sācis eksportēt? Kurš būtu vispirms kaut ko pārbaudījis? Ko tieši?
             Atklāj: balss ir MI ģenerēta ar bezmaksas atvērtā koda modeli no 30 sekundēm Arvja WhatsApp balss ziņas, ar viņa rakstisku piekrišanu. Teksts ir izdomāts, Arvis to nekad nav teicis. Maksāja nulle eiro un vienu vakaru. Tad klikšķis: parādās virsraksts un trīs noteikumi.
-            Tad slaids. 01: mūsu noteikums ir viens teikums. Ja kāds paziņo par krīzi un prasa tūlīt kaut ko darīt produkcijā ar datiem, vai pārskaitīt, vai dot piekļuvi, vai mainīt rekvizītus, tu pārtrauc sarunu un pats atzvani uz numuru, kas jau ir tavā telefonā. Īsta krīze pie mums iet pa MIT-04 krīzes kanālu (WhatsApp grupa, Jana, Edgars, Arvis), nevis pa vienu zvanu vienam izstrādātājam. Ja Arvis tiešām zvanītu, viņš par atzvanu tikai priecātos.
+            Tad slaids. 01: mūsu noteikums ir viens teikums. Ja kāds paziņo par krīzi un prasa tūlīt kaut ko darīt produkcijā ar datiem, vai pārskaitīt, vai dot piekļuvi, vai mainīt rekvizītus, tu pārtrauc sarunu un pats atzvani uz numuru, kas jau ir tavā telefonā. Īsta krīze pie mums iet pa MIT-04 ķēdi: zvans Janai, Edgaram vai Arvim, pēc zvana WhatsApp tam pašam cilvēkam, nevis viens zvans vienam izstrādātājam ar lūgumu kaut ko eksportēt. Ja Arvis tiešām zvanītu, viņš par atzvanu tikai priecātos.
             02: Ferrari 2024: krāpnieks ar klonētu CEO balsi zvanīja vadītājam, tas pajautāja "kādu grāmatu tu man pagājušajā nedēļā ieteici", krāpnieks nolika klausuli. Kontroljautājums der arī mums: kaut kas, ko zina tikai jūs abi.
             03: steiga un slepenība. Fideuram (Intesa Sanpaolo meita) 2026: priekšsēdētājs saņēma WhatsApp it kā no Intesa vadītāja, tad zvanu ar MI klonētu advokāta balsi, "konfidenciāls darījums, nevienam nesaki". 95 miljoni eiro. Luminor saka, ka CEO krāpšana pa e-pastu un WhatsApp Latvijas uzņēmumos ir ikdiena, deepfake gadījums publiski vēl nav dokumentēts.
             Noslēgums: nav kauns atzvanīt. Kauns ir eksportēt.
@@ -437,12 +437,14 @@
             Demo G (Edgars, 8 min): Lakera Gandalf 1.-3. līmenis uz lielā ekrāna, zāle sauc uzvednes. Tad "sarkanā komanda kolēģim": pāros mēģina izvilkt noslēpumu no mūsu platformas smilškastes čatbota.
             Izstrādātājiem demo E: Jira vai Sentry komentārā paslēpta instrukcija, ko aģents caur MCP izpilda. Tieši tā strādāja Agentjacking.
             GitHub MCP gadījums: ļaunprātīgs issue publiskā repo lika aģentam nopludināt privāto repo saturu. Replit: aģents izdzēsa produkcijas datubāzi, lai gan bija aizliegts ko mainīt.
+            Mūsu realitāte, godīgi: kodējam ar Claude Code un Gemini CLI uz uzņēmuma kontiem, platformā aģenti lasa Jira, GitHub un Harvest caur konektoriem, daļa no mums laiž aģentu bez apstiprinājumiem, un uz portatīvajiem datoriem ir .env faili ar tokeniem. Aizliegt nav jēgas, mēs to darām katru dienu, un tas strādā. Drošāk darīt nozīmē četras lietas. 1) Aģentam savs šaurs tokens (GitHub fine-grained PAT vienam repo, lasīšanas tiesības, kur ar tām pietiek), nevis tava pilnā sesija. 2) Produkcijas un klientu atslēgas nost no datora, kur aģents strādā bez apstiprinājumiem: īslaicīgas atslēgas caur SSO vai 1Password CLI, nevis .env. 3) Bez apstiprinājumiem tikai savā repo vai konteinerā; klientu repo ar apstiprinājumiem vai ar atļauto komandu sarakstu (Claude Code settings allow un deny). 4) Viss, ko aģents izlasa tiketā, e-pastā vai lapā, ir dati: ja tas prasa kaut ko darīt, aģents apstājas un prasa cilvēkam. Sūtīt, dzēst, deploy, produkcijas datubāze: cilvēka OK vienmēr. Edgars pēc sesijas savāc sarakstu, kur aģenti strādā bez apstiprinājumiem un ar kādām atslēgām.
             Kontrole ir aģenta tiesību ierobežošana, nevis cerība, ka tas injekciju ignorēs. Mūsu prakse: platformā aģents strādā ar lietotāja paša pieejām un rakstošie konektori prasa apstiprinājumu; termināla aģents bez apstiprinājumiem drīkst strādāt tikai savā repo bez produkcijas atslēgām; e-pastus un Slack ziņas aģents tikai sagatavo, sūta cilvēks.
           </template>
         </section>
 
         <!-- 18 AI Act -->
         <section class="slide" data-title="MI akts">
+          <div class="split split--s18">
           <div class="stack">
             <div class="head">
               <p class="eyebrow">MI akts</p>
@@ -456,11 +458,13 @@
               </ol>
             </div>
           </div>
-          <div class="foot"><p class="source">Eiropas Komisija, AI literacy Q&amp;A, 27.07.2026; VARAM, MI akta faktu lapa, 08.2026; Regula 2026/1744</p></div>
+          <figure class="window"><div class="window-bar"><i></i><i></i><i></i><span>mitigate.dev · MI asistents, 18.10.2026</span></div><img src="assets/images/mi-asistents-pazinojums.png" alt="Mitigate MI asistenta logs ar paziņojumu: Atbildes sagatavo mākslīgais intelekts, tās var būt neprecīzas. Šis asistents ir veidots uz Mitigate AI platformas."></figure>
+        </div>
+        <div class="foot"><p class="source">Eiropas Komisija, AI literacy Q&amp;A, 27.07.2026; VARAM, MI akta faktu lapa, 08.2026; Regula 2026/1744</p></div>
           <template class="notes">
             Mēs esam divās lomās: uzturētājs tam, ko paši lietojam, un MI sistēmas nodrošinātājs tam, ko piegādājam klientiem.
             Omnibuss (spēkā 27.07.2026) 4. pantu mīkstināja uz "saprātīgiem pasākumiem", bet nenoņēma. Augsta riska pienākumi atlikti uz 02.12.2027.
-            50. pants praktiski: čatbota paziņojums pirmajā saskarsmē, mašīnlasāms marķējums izvadei. Platformā teksts jau tiek marķēts, atvērts ir docx, xlsx un pdf metadatu robs līdz 02.12.2026.
+            50. pants praktiski: čatbota paziņojums pirmajā saskarsmē, mašīnlasāms marķējums izvadei. Ekrānuzņēmums labajā pusē ir mūsu pašu mājaslapas čats: "Atbildes sagatavo mākslīgais intelekts, tās var būt neprecīzas. Šis asistents ir veidots uz Mitigate AI platformas." Tieši tā izskatās 50. panta 1. daļa dzīvē, un to pašu paziņojumu dabū katrs klienta čatbots, ko būvējam uz platformas. Platformā teksts jau tiek marķēts, atvērts ir docx, xlsx un pdf metadatu robs līdz 02.12.2026.
             Publiski teksti (blogs, LinkedIn) par sabiedrības interešu tēmām: vai nu marķēti, vai dokumentēti kā cilvēka rediģēti.
           </template>
         </section>
@@ -484,7 +488,7 @@
                 <g class="node node--accent"><rect x="420" y="50" width="340" height="140" rx="16"/><text x="590" y="110" text-anchor="middle">security@ vai CTO</text><text class="sub" x="590" y="142" text-anchor="middle">tajā pašā dienā, pa tālruni ja steidzami</text></g>
                 <g class="node"><rect x="820" y="50" width="340" height="140" rx="16"/><text x="990" y="110" text-anchor="middle">CTO un COO, 24 h</text><text class="sub" x="990" y="142" text-anchor="middle">lēmums par CERT.LV un klientu</text></g>
                 <g class="node"><rect x="1220" y="50" width="360" height="140" rx="16"/><text x="1400" y="110" text-anchor="middle">DVI, 72 h</text><text class="sub" x="1400" y="142" text-anchor="middle">ja skarti personas dati, klienta vārdā</text></g>
-                <text class="label" x="20" y="290">Ja nestrādā Slack vai Google: krīzes kanāls ir WhatsApp grupa "Mitigate krīze", tad SMS (MIT-04)</text>
+                <text class="label" x="20" y="290">Ja nestrādā Slack: zvans vadībai, pēc zvana WhatsApp tam pašam cilvēkam, tad SMS (MIT-04)</text>
               </svg>
             </div>
           </div>
