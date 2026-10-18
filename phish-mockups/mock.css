@@ -1,0 +1,60 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1400px;height:900px;overflow:hidden;background:#f1f3f4;font-family:-apple-system,"Helvetica Neue",Roboto,Arial,sans-serif;color:#202124;-webkit-font-smoothing:antialiased}
+/* Gmail-like mail view */
+.gm{width:1400px;height:900px;background:#fff;display:flex;flex-direction:column}
+.gm-top{height:64px;background:#f6f8fc;display:flex;align-items:center;padding:0 28px;gap:18px;border-bottom:1px solid #e3e6ea}
+.gm-top .m{font-size:24px;font-weight:600;color:#444746;letter-spacing:-.01em}
+.gm-top .m b{color:#d93025}
+.gm-search{margin-left:30px;flex:0 0 620px;height:44px;background:#e9eef6;border-radius:24px;display:flex;align-items:center;padding:0 18px;color:#5f6368;font-size:17px;gap:12px}
+.gm-tools{height:52px;display:flex;align-items:center;gap:26px;padding:0 36px;color:#444746;font-size:15px;border-bottom:1px solid #eef0f2}
+.gm-tools span{opacity:.75}
+.gm-body{padding:28px 64px 0 64px;flex:1;overflow:hidden}
+.gm-subject{font-size:30px;font-weight:400;color:#1f1f1f;margin-bottom:8px;display:flex;align-items:center;gap:16px}
+.gm-subject .tag{font-size:13px;background:#ddd;color:#444;padding:3px 9px;border-radius:4px}
+.gm-from{display:flex;align-items:flex-start;gap:16px;margin:22px 0 26px}
+.ava{width:46px;height:46px;border-radius:50%;background:#7b1fa2;color:#fff;display:grid;place-items:center;font-size:20px;font-weight:600;flex:none}
+.gm-from .who{font-size:18px;line-height:1.35}
+.gm-from .who b{font-weight:700}
+.gm-from .who .addr{color:#5f6368;font-weight:400}
+.gm-from .who .to{color:#5f6368;font-size:15px;margin-top:3px}
+.gm-from .date{margin-left:auto;color:#5f6368;font-size:15px;white-space:nowrap;padding-top:4px}
+.mail{font-size:18px;line-height:1.55;color:#222;max-width:900px}
+.mail p{margin:0 0 16px}
+.btn{display:inline-block;padding:13px 30px;border-radius:6px;font-weight:600;font-size:17px;color:#fff;text-decoration:none}
+.fine{font-size:13px;color:#777;line-height:1.5;margin-top:28px;max-width:860px}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.brand .lg{height:46px;padding:0 14px;display:flex;align-items:center;color:#fff;font-weight:800;font-size:19px;border-radius:5px;letter-spacing:.02em}
+.brand span{font-size:15px;color:#555}
+/* phone */
+.phone-wrap{width:1400px;height:900px;display:grid;place-items:center;background:#e8eaed}
+.phone{width:430px;height:860px;background:#000;border-radius:54px;padding:14px;box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.screen{background:#fff;border-radius:42px;height:100%;overflow:hidden;position:relative}
+.ph-head{height:118px;background:#f6f6f7;border-bottom:1px solid #d9d9dd;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:10px;position:relative}
+.ph-head .back{position:absolute;left:16px;bottom:14px;color:#0a84ff;font-size:17px}
+.ph-head .pav{width:50px;height:50px;border-radius:50%;background:#8e8e93;color:#fff;display:grid;place-items:center;font-size:17px;font-weight:600;margin-bottom:4px}
+.ph-head .pname{font-size:13px;color:#111}
+.ph-time{text-align:center;font-size:12px;color:#8e8e93;margin:18px 0 8px}
+.bubble{margin:0 22px 0 16px;background:#e9e9eb;border-radius:20px;padding:12px 15px;font-size:17px;line-height:1.35;color:#111;max-width:330px}
+.bubble a{color:#0a84ff;text-decoration:underline;word-break:break-all}
+.ph-input{position:absolute;bottom:0;left:0;right:0;height:78px;background:#f6f6f7;border-top:1px solid #d9d9dd;display:flex;align-items:center;padding:0 14px;gap:10px}
+.ph-input .field{flex:1;height:36px;border:1px solid #c7c7cc;border-radius:18px;background:#fff;color:#8e8e93;font-size:15px;display:flex;align-items:center;padding:0 14px}
+.ph-input .ic{width:30px;height:30px;border-radius:50%;background:#e5e5ea}
+.statusbar{position:absolute;top:0;left:0;right:0;height:46px;display:flex;justify-content:space-between;padding:14px 30px 0;font-size:15px;font-weight:600;color:#000}
+/* google results */
+.g{width:1400px;height:900px;background:#fff}
+.g-top{height:92px;display:flex;align-items:center;padding:0 40px;gap:36px;border-bottom:1px solid #e8eaed}
+.g-logo{font-size:30px;font-weight:600;letter-spacing:-.02em}
+.g-logo i{font-style:normal}
+.g-box{width:690px;height:46px;border:1px solid #dfe1e5;border-radius:24px;box-shadow:0 1px 6px rgba(32,33,36,.18);display:flex;align-items:center;padding:0 20px;font-size:17px;justify-content:space-between}
+.g-tabs{height:46px;display:flex;align-items:center;gap:30px;padding:0 206px;font-size:14px;color:#5f6368;border-bottom:1px solid #e8eaed}
+.g-tabs b{color:#1a73e8;font-weight:500;border-bottom:3px solid #1a73e8;padding:12px 0}
+.g-res{padding:20px 0 0 206px;width:900px}
+.g-ad{margin-bottom:34px;padding:0}
+.g-adlbl{font-size:14px;font-weight:700;color:#202124;margin-bottom:12px}
+.g-site{display:flex;align-items:center;gap:12px;font-size:14px;color:#202124;margin-bottom:6px}
+.g-site .fav{width:26px;height:26px;border-radius:50%;background:#e8eaed;display:grid;place-items:center;font-size:12px;font-weight:700}
+.g-site .url{color:#4d5156}
+.g-title{font-size:22px;color:#1a0dab;margin-bottom:6px}
+.g-snip{font-size:15px;color:#4d5156;line-height:1.55;max-width:640px}
+.g-links{display:flex;gap:28px;font-size:15px;color:#1a0dab;margin-top:10px}
+.g-org{margin-bottom:30px}

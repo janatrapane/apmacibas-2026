@@ -1,0 +1,461 @@
+
+        <!-- 1 cover -->
+        <section class="slide slide--cover slide--bleed" data-title="Vāks" data-chrome="off">
+          <div class="center">
+            <p class="eyebrow">Mitigate kopsapulce · [DATUMS]</p>
+            <h1 class="headline">Viens klikšķis, <em>viena zīme</em></h1>
+            <p class="lede">Datu aizsardzība, kiberdrošība un MI rīki: ko 2026. gadā darām citādi.</p>
+          </div>
+          <svg class="cover-visual" viewBox="-450 -450 900 900" aria-hidden="true">
+            <g fill="none" stroke="var(--accent)" stroke-opacity="0.22">
+              <circle r="400"/><circle r="330"/><circle r="260"/><circle r="190"/><circle r="120"/><circle r="50"/>
+              <path d="M-400 0 H400 M0 -400 V400" stroke-opacity="0.5"/>
+            </g>
+          </svg>
+          <p class="byline"><img src="assets/brand/logo.svg" alt="Mitigate"><span>Jana Trapāne · Edgars Beigarts · Jūlija Vozņaka</span></p>
+          <template class="notes">
+            Šī ir ikgadējā atkārtošana, ko prasa ISO 27001 (A.6.3), MI akta 4. pants un mūsu risku plāns. Bet mērķis nav ķeksis: pēc 90 minūtēm katrs aiziet ar trim lietām, ko izdara šonedēļ.
+            Pirms sākam: 10 jautājumu tests jau bija aizpildīts 2 dienas pirms. Beigās tas pats tests.
+            Formāts: maz slaidu, daudz demo un vingrinājumu. Telefoni vaļā - vajadzēs Mentimeter.
+          </template>
+        </section>
+
+        <!-- 2 LVM story -->
+        <section class="slide slide--statement" data-title="LVM stāsts">
+          <div class="center">
+            <p class="eyebrow">Latvija, 2026. gada vasara</p>
+            <h2 class="headline">Divus gadus nelabota ievainojamība, jo e-pastā <em>pārprata zīmi ≥</em>.</h2>
+          </div>
+          <div class="foot"><p class="source">LSM, 17.08.2026; CERT.LV, LVM kiberdrošības incidents, 06.-07.2026</p></div>
+          <template class="notes">
+            Latvijas valsts meži. 2024. gadā CERT.LV brīdina par ievainojamību GeoServer sistēmā un nosauc skartās versijas kā diapazonu. LVM izlasa "lielāks vai vienāds" kā "lielāks" un secina, ka viņu versija nav skarta.
+            11.06.2026 uzbrucējs iekļūst. 22.06. sākas šifrēšana. Līgo svētkos uzņēmums atslēdz visu IT no interneta. 01.07. noplūst 44 GB: koda repozitorijs, sertifikāti, atslēgas, paroļu jaucējkodi.
+            Divas mācības: viens nelabots serviss aptur visu uzņēmumu; drošības brīdinājumam vajag otru pāri acu. LVM pēc tam ieviesa "sešu acu" principu. Mums to dara PR review un security@.
+          </template>
+        </section>
+
+        <!-- 3 big numbers -->
+        <section class="slide" data-title="Skaitļi">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Kāpēc atkal</p>
+              <h2 class="headline">Uzbrucējs nemeklē tevi. Viņš meklē <em>atvērtas durvis</em>.</h2>
+            </div>
+            <div class="fill">
+              <div class="stats">
+                <div class="stat stat--accent"><p class="stat-value">923</p><p class="stat-label">incidenti CERT.LV 2025. gada 4. ceturksnī, vēsturiski augstākais skaits</p></div>
+                <div class="stat"><p class="stat-value">+54<small>%</small></p><p class="stat-label">krāpšanas pieaugums Latvijā 2025. gadā</p></div>
+                <div class="stat"><p class="stat-value">22<small>s</small></p><p class="stat-label">mediānais laiks no ielaušanās līdz piekļuves nodošanai citai grupai</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>Viss ir automatizēts. Tava kļūda tiek izmantota, pirms tu to pamani.</p>
+            <p class="source">CERT.LV pārskats 4.C/2025; Mandiant M-Trends 2026</p>
+          </div>
+          <template class="notes">
+            923 incidenti vienā ceturksnī, 676 no tiem krāpniecība. Krāpšana gada laikā +54 %.
+            22 sekundes: Mandiant mediānais laiks no pirmās piekļuves (parasti infostealer uz darbinieka datora) līdz brīdim, kad piekļuve nodota citai grupai. 2022. gadā tas bija vairāk nekā 8 stundas.
+            TSC (LMT grupa) 2026. gada septembrī: uzņēmums nebija izvēlēts mērķis, sistēmas atrada automātisks skeneris.
+          </template>
+        </section>
+
+        <!-- 4 supplier -->
+        <section class="slide" data-title="Mēs esam piegādātājs">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Mūsu loma</p>
+              <h2 class="headline">Soda izstrādātāju par drošību un klientu par to, ka <em>izstrādātāju nepārrauga</em>.</h2>
+            </div>
+            <div class="fill">
+              <ol class="rows">
+                <li><span class="n">01</span><div><strong>ZZ Dats: 300 000 EUR kā apstrādātājam</strong><span>Lielākais DVI sods vēsturē, par 32. pantu (drošība). Pašvaldību IS uzturētājs, tāds pats piegādātājs kā mēs.</span></div></li>
+                <li><span class="n">02</span><div><strong>Rājiens 42 pašvaldībām un 3 uzņēmumiem</strong><span>Par nepietiekamu apstrādātāja uzraudzību. Tāpēc klienti prasa DPA, auditus un apmācību pierādījumus.</span></div></li>
+                <li><span class="n">03</span><div><strong>NIS2 klienti nodod prasības piegādātājiem</strong><span>Ja pakalpojums ārpakalpojumā, MK 397 minimālās prasības attiecas arī uz piegādātāju. Šī sesija ir atbilde uz klientu anketām.</span></div></li>
+              </ol>
+            </div>
+          </div>
+          <div class="foot"><p class="source">DVI 2025. gada pārskats, 37. un 45. lpp.; SAB BUJ par ārpakalpojumu prasībām, 03.2026</p></div>
+          <template class="notes">
+            ZZ Dats noplūde 2024. gada nogalē skāra gandrīz visu pašvaldību iedzīvotājus. DVI pārkvalificēja uzņēmumu no pārziņa par apstrādātāju un piemēroja 300 000 EUR (sākotnēji 400 000, pārsūdzēts).
+            Mums tas nozīmē divas lietas: mēs atbildam par klientu datu drošību pat tad, ja līgumā tas nav sīki aprakstīts; un klienti mūs pārbaudīs stingrāk.
+            Mēs paši, visticamāk, neesam NIS2 subjekts, bet valsts iestādes, telekomi un bankas ir. CERT.LV: uzbrucēji bieži izmanto ārpakalpojumu sniedzējus kā ieejas punktu.
+          </template>
+        </section>
+
+        <!-- 5 exercise phishing -->
+        <section class="slide" data-title="Īsts vai viltus">
+          <div class="center">
+            <p class="eyebrow">Vingrinājums 1 · Mentimeter</p>
+            <h2 class="headline headline--lg">Īsts vai viltus?</h2>
+            <p class="lede">Sešas ziņas uz ekrāna: CSDD īsziņa, "ibanka" Google reklāma, VID EDS, kolēģa Drive koplietošana, Harvest paziņojums, atvaļinājumu politikas atjauninājums.</p>
+            <div class="build" data-build="1" data-motion="fade-up">
+              <p class="lede"><strong class="accent">Visas sešas ir viltus.</strong> Pētījumā uz paroles atjaunināšanu uzķērās 1,8 %, uz atvaļinājumu politiku 30,8 %. Ēsma nosaka visu.</p>
+            </div>
+          </div>
+          <div class="foot"><p class="source">CERT.LV 4.C/2025: jauns.lv 18 %, Microsoft 13 %, CSDD 11 %, Google Ads 11 %; UC San Diego, 19 500 darbinieku eksperiments, 2025</p></div>
+          <template class="notes">
+            Rādi sešus ekrānuzņēmumus pa vienam (sagatavoti atsevišķi, ar Latvijas zīmoliem un mūsu iekšējo rīku izskatu). Pēc katra balsojums Mentimeter: īsts vai viltus. 8 minūtes.
+            Tad klikšķis: visas viltus. Pointe nav "jūs esat naivi", bet: ēsma, kas izskatās pēc iekšējas ziņas, strādā 15 reizes labāk. Tāpēc arī kolēģa vārdam ar neparastu lūgumu nevar ticēt bez pārbaudes.
+            "ibanka" stāsts: ierakstot meklētājā "ibanka", pirmie sponsorētie rezultāti bija viltus SEB lapas. Arī Google rezultāti nav uzticami.
+          </template>
+        </section>
+
+        <!-- 6 three clicks diagram -->
+        <section class="slide" data-title="Trīs klikšķi">
+          <div class="split">
+            <div>
+              <p class="eyebrow">Jaunais 2026</p>
+              <h2 class="headline">Trīs klikšķi, kas <em>apiet MFA</em>.</h2>
+              <p class="lede">Visi trīs fiksēti Latvijā. Nevienā nav jāievada parole viltus lapā.</p>
+            </div>
+            <svg class="diagram" viewBox="0 0 900 560" role="img" aria-label="Trīs ceļi: ClickFix, ierīces kods, OAuth piekrišana, visi ved uz pārņemtu sesiju bez paroles.">
+              <defs>
+                <marker id="arrow-s6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="arrow" d="M0 0 L10 5 L0 10z"/></marker>
+              </defs>
+              <path class="edge" d="M320 95 L560 255" marker-end="url(#arrow-s6)"/>
+              <path class="edge" d="M320 280 L560 280" marker-end="url(#arrow-s6)"/>
+              <path class="edge" d="M320 465 L560 305" marker-end="url(#arrow-s6)"/>
+              <g class="node"><rect x="10" y="40" width="310" height="110" rx="16"/><text x="165" y="88" text-anchor="middle">ClickFix</text><text class="sub" x="165" y="118" text-anchor="middle">viltus CAPTCHA liek nospiest Win+R</text></g>
+              <g class="node"><rect x="10" y="225" width="310" height="110" rx="16"/><text x="165" y="273" text-anchor="middle">Ierīces kods</text><text class="sub" x="165" y="303" text-anchor="middle">tu ievadi svešu kodu īstajā lapā</text></g>
+              <g class="node"><rect x="10" y="410" width="310" height="110" rx="16"/><text x="165" y="458" text-anchor="middle">OAuth piekrišana</text><text class="sub" x="165" y="488" text-anchor="middle">"Atļaut" lietotnei, kas izskatās pēc dokumenta</text></g>
+              <g class="node node--accent"><rect x="560" y="210" width="330" height="140" rx="16"/><text x="725" y="272" text-anchor="middle">Sesija pārņemta</text><text class="sub" x="725" y="304" text-anchor="middle">bez paroles, MFA apieta</text></g>
+            </svg>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>Paroles maiņa nepalīdz. Jāatsauc lietotne vai sesija, un jāziņo.</p>
+            <p class="source">CERT.LV kiberlaikapstākļi, 09.2026; FBI IC3 PSA 01.09.2026</p>
+          </div>
+          <template class="notes">
+            Dzīvs demo izolētā VM (Edgars), 10 minūtes.
+            ClickFix: vietne rāda "pierādi, ka neesi robots", liek nospiest Win+R, Ctrl+V, Enter. Tu pats palaid ļaunatūru. Antivīruss klusē, jo komandu izpildīji tu. CERT.LV septembrī ziņoja par vairākiem upuriem Latvijā.
+            Ierīces kods: atnāk ziņa "ievadi šo kodu microsoft.com/devicelogin". Lapa ir īsta. Bet kods ir uzbrucēja, un tu autorizē viņa sesiju. Noteikums: kodu ievadi tikai tad, ja pats sāki pieteikšanos.
+            OAuth: lietotne prasa piekļuvi e-pastam un Drive. FBI brīdinājums: pēc piekrišanas paroles maiņa nepalīdz, jāatsauc tokens.
+            Nobeigumā visi atver sava Google konta "Trešo pušu lietotnes" un Slack "Apps" sarakstu. Kas tur ir svešs?
+          </template>
+        </section>
+
+        <!-- 7 voice -->
+        <section class="slide" data-title="Balss un WhatsApp">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Sociālā inženierija</p>
+              <h2 class="headline">Pazīstams vārds un balss <em>nav pierādījums</em>.</h2>
+            </div>
+            <div class="fill">
+              <ol class="rows">
+                <li><span class="n">01</span><div><strong>Naudas, piekļuves vai rekvizītu maiņas pieprasījums: vienmēr otrs kanāls</strong><span>Zvani atpakaļ pa numuru, ko zini pats, nevis to, kas ir ziņā.</span></div></li>
+                <li><span class="n">02</span><div><strong>Kontroljautājums, uz ko atbildi zina tikai īstais cilvēks</strong><span>Ferrari vadītājam krāpnieks ar klonētu balsi nolika klausuli pēc jautājuma "kādu grāmatu tu man nesen ieteici".</span></div></li>
+                <li><span class="n">03</span><div><strong>Steiga un slepenība ir pazīme, ne iemesls</strong><span>"Tikai tev, tūlīt, nevienam nesaki" nozīmē: apstājies un pārbaudi.</span></div></li>
+              </ol>
+            </div>
+          </div>
+          <div class="foot"><p class="source">Reuters par Fideuram, 10.2026 (zaudēti 95 milj. EUR pēc WhatsApp ziņas un klonētas balss); Bloomberg par Ferrari, 2024; Luminor par CEO krāpšanu Latvijā, 09.2025</p></div>
+          <template class="notes">
+            Pirms slaida: atskaņo 20 sekunžu klipu ar Arvja klonētu balsi (ar viņa rakstisku piekrišanu, klonēts viņa paša kontā), kurā viņš lūdz "ātri iedot piekļuvi" vai "pārskaitīt". Pajautā: kurš būtu izpildījis?
+            Fideuram (Intesa Sanpaolo meita) 2026: priekšsēdētājs saņem WhatsApp it kā no Intesa CEO, tad zvanu ar MI klonētu advokāta balsi. 95 miljoni. Daļa atgūta.
+            Latvijā deepfake gadījums publiski nav dokumentēts, bet Luminor saka, ka CEO krāpšana pa e-pastu un WhatsApp uzņēmumos ir izplatīta.
+            Mūsu noteikums: naudas un piekļuves pieprasījumus apstiprina pa otru kanālu. Vienojieties ar savu PM par atzvanīšanas kodu.
+          </template>
+        </section>
+
+        <!-- 8 developers -->
+        <section class="slide" data-title="Piegādes ķēde">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Izstrādātājiem</p>
+              <h2 class="headline">Piegādes ķēde ienāk caur <em>tavu datoru</em>.</h2>
+            </div>
+            <div class="fill">
+              <ol class="rows">
+                <li><span class="n">01</span><div><strong>Shai-Hulud: viens "atjaunini npm MFA" e-pasts</strong><span>Tārps ar nozagto tokenu publicē sevi visās tavās pakotnēs un tavas atslēgas tavā GitHub. Ja nevar nosūtīt, dzēš mājas mapi.</span></div></li>
+                <li><span class="n">02</span><div><strong>tj-actions: versiju tagi pārrakstīti ar atpakaļejošu datumu</strong><span>Tags nepasargā. GitHub Actions piesaista pie commit SHA.</span></div></li>
+                <li><span class="n">03</span><div><strong>Nx s1ngularity: ļaunatūra palaiž tavu Claude un Gemini CLI ar --yolo</strong><span>Lai tie paši atrod noslēpumus. 2 349 akreditācijas dati no 1 079 mašīnām, 90 % GitHub tokenu derīgi.</span></div></li>
+                <li><span class="n">04</span><div><strong>AWS atslēga publiskā repo tiek izmantota minūtēs</strong><span>"Tūlīt izdzēsīšu commit" nestrādā. Rotē atslēgu, tad ziņo.</span></div></li>
+              </ol>
+            </div>
+          </div>
+          <div class="foot"><p class="source">Unit 42 un CISA par Shai-Hulud, 09.2025; Wiz par tj-actions, 03.2025, un Nx s1ngularity, 08.2025; Comparitech GitHub honeypot</p></div>
+          <template class="notes">
+            Katram no šiem ieeja ir cilvēks: pikšķerēšana npm vārdā, uzticēšanās tagam, aģents ar pilnām tiesībām.
+            Nx stāsts ir par mums visiem, kas lietojam Claude Code: ļaunatūra neatnesa savu rīku, tā izmantoja jau instalēto ar tiesību apiešanas karodziņu. Nekad --dangerously-skip-permissions uz mašīnas ar reāliem noslēpumiem.
+            Demo D (ja laiks): ieliekam viltus AWS atslēgu publiskā repo un hronometrs līdz pirmajam API izsaukumam. Honeypot pētījumos tā ir aptuveni minūte.
+            Mūsu MIT-01-AP: PR review obligāts, Depfu, dev/test/prod nodalīti.
+          </template>
+        </section>
+
+        <!-- 9 passwords -->
+        <section class="slide" data-title="Paroles 2026">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Autentifikācija</p>
+              <h2 class="headline">SMS kods 2026. gadā <em>vairs nav atbilde</em>.</h2>
+            </div>
+            <div class="fill">
+              <div class="stats">
+                <div class="stat"><p class="stat-value">97<small>%</small></p><p class="stat-label">identitātes uzbrukumu ir paroļu uzbrukumi</p></div>
+                <div class="stat stat--accent"><p class="stat-value">99<small>%</small></p><p class="stat-label">no tiem novērš pret pikšķerēšanu noturīga MFA (passkey, drošības atslēga)</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>Passkey Google un GitHub kontam, paroļu pārvaldnieks visam pārējam. MIT-01-AP: 12 simboli, 2FA obligāts.</p>
+            <p class="source">Microsoft Digital Defense Report 2025 (caur The Record); Mitigate MIT-01-AP, 11. sadaļa</p>
+          </div>
+          <template class="notes">
+            Demo F (Edgars, 6 min): hashcat uz pašu ģenerētiem jaucējkodiem. 8 zīmju parole ar simboliem krīt minūtēs, 4 vārdu frāze ne. CERT.LV rokasgrāmatā ir Top 100 sliktāko Latvijas paroļu.
+            Kāpēc SMS nav MFA: ierīces koda un OAuth uzbrukumi SMS kodu neprasa, un SIM maiņa ir lēta. Microsoft SMS un balss autentifikāciju izņem no 2027. februāra.
+            Passkey: pret pikšķerēšanu noturīga, jo strādā tikai īstajā domēnā. Paroļu pārvaldnieks (Bitwarden) tāpat: ja nepiedāvā aizpildīt, lapa nav īstā.
+            Apņemšanās sesijas beigās: passkey Google un GitHub kontam šonedēļ.
+          </template>
+        </section>
+
+        <!-- 10 divider -->
+        <section class="slide slide--divider" data-title="Personas dati" data-theme="dark">
+          <div class="center">
+            <p class="divider-index">02</p>
+            <h2 class="headline headline--lg">Personas dati</h2>
+          </div>
+          <template class="notes">Šo daļu vada Jūlija kopā ar Janu. 20 minūtes.</template>
+        </section>
+
+        <!-- 11 common mistakes -->
+        <section class="slide" data-title="Kur dati paslēpjas">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Ko atkārtot</p>
+              <h2 class="headline">Personas dati ir arī ekrānuzņēmumā, žurnālā un <em>testa datubāzē</em>.</h2>
+            </div>
+            <div class="fill">
+              <ol class="rows">
+                <li><span class="n">01</span><div><strong>Ekrānuzņēmums ar personas kodu Jira vai Slack</strong><span>Policists, kas ielika dienesta datus slēgtā Discord čatā, saņēma 150 EUR sodu personīgi.</span></div></li>
+                <li><span class="n">02</span><div><strong>Produkcijas dati testa vidē</strong><span>Pseidonimizēts nav anonīms. CNIL IQVIA 5 milj. EUR tieši par to.</span></div></li>
+                <li><span class="n">03</span><div><strong>Klienta CSV privātā e-pastā vai personīgā ChatGPT</strong><span>Dati nonāk pie apstrādātāja bez līguma. MIT-01-AP to aizliedz.</span></div></li>
+                <li><span class="n">04</span><div><strong>Dati "uz visiem laikiem"</strong><span>CSDD noplūdē 2026. gadā aizgāja maksājumu dati kopš 2008. gada par 1,2 milj. personu.</span></div></li>
+              </ol>
+            </div>
+          </div>
+          <div class="foot"><p class="source">DVI 2025. gada pārskats, 43. lpp.; LV portāls par CSDD, 08.2026; CNIL/IQVIA, 2026 (sekundārs avots)</p></div>
+          <template class="notes">
+            Mēs nerunājam par VDAR teoriju. Runājam par četrām vietām, kur personas dati parādās izstrādes uzņēmumā, nevienam to negribot.
+            Personas dati ir arī žurnālfaili, analītika, e-pasta adreses testa kontos, CV koplietotā mapē.
+            CSDD trīs mācības vienā stāstā: glabāšanas termiņi, 72 stundas (publiski strīdējās, vai paziņots laikā), un pēc noplūdes nākošā pikšķerēšana ir daudz pārliecinošāka.
+          </template>
+        </section>
+
+        <!-- 12 exercise GDPR -->
+        <section class="slide" data-title="Atrodi pārkāpumu">
+          <div class="center">
+            <p class="eyebrow">Vingrinājums 2 · Mentimeter</p>
+            <h2 class="headline headline--lg">Kurā situācijā ir pārkāpums?</h2>
+            <p class="lede">A. PM pārsūta klienta Excel ar darbinieku sarakstu uz savu Gmail, lai pabeigtu mājās. B. Izstrādātājs ieliek Jira ekrānuzņēmumu ar klienta lietotāja vārdu un personas kodu. C. Vecs projekts ar klientu datiem joprojām Drive, trīs gadus pēc nodošanas.</p>
+            <div class="build" data-build="1" data-motion="fade-up">
+              <p class="lede"><strong class="accent">Visās trīs.</strong> Un visas trīs atrisina viens ieradums: ja redzi personas datus tur, kur tiem nav jābūt, saki tajā pašā dienā.</p>
+            </div>
+          </div>
+          <template class="notes">
+            Balsojums: A, B, C vai visas. Tad diskusija 5 minūtes: kas katrā gadījumā būtu pareizi.
+            A: uzņēmuma Drive un uzņēmuma dators arī mājās. B: aizklāj vai izmanto testa datus. C: pēc nodošanas un garantijas dzēš vai nodod klientam, saskaņā ar līgumu un glabāšanas termiņiem.
+            Šeit nav vainīgo meklēšanas. Ziņošana bez vainas ir vienīgais veids, kā par problēmu uzzinām laikā.
+          </template>
+        </section>
+
+        <!-- 13 DVI numbers -->
+        <section class="slide" data-title="DVI skaitļi">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">72 stundas</p>
+              <h2 class="headline">DVI saņem desmit sūdzības uz katru <em>pārziņa paziņojumu</em>.</h2>
+            </div>
+            <div class="fill">
+              <div class="stats">
+                <div class="stat"><p class="stat-value">1 034</p><p class="stat-label">sūdzības DVI 2025. gadā</p></div>
+                <div class="stat stat--accent"><p class="stat-value">96</p><p class="stat-label">pārziņu paziņojumi par pārkāpumiem</p></div>
+                <div class="stat"><p class="stat-value">326<small>tūkst. EUR</small></p><p class="stat-label">5 naudas sodi, no 150 līdz 300 000 EUR</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>72 h skaita pārzinis. Mēs kā apstrādātājs ziņojam klientam bez kavēšanās, tāpēc iekšēji - tajā pašā dienā.</p>
+            <p class="source">DVI 2025. gada pārskats, 32.-36. lpp.; VDAR 33. panta 2. daļa</p>
+          </div>
+          <template class="notes">
+            Uzņēmumi paši ziņo reti. Divi no septiņiem DVI administratīvajiem lēmumiem 2025. gadā bija par informācijas nesniegšanu inspekcijai.
+            Mūsu ķēde ir MIT-01-AP: ziņo security@ vai CTO, CTO un COO 24 stundu laikā lemj par klientu un CERT.LV, DVI paziņojumu klienta vārdā koordinē pēc personas datu pārkāpuma procedūras. Parādīšu 19. slaidā.
+            Neziņošanas iemesls parasti ir bailes. Arctic Wolf aptaujā 17 % IT vadītāju, kas uzklikšķināja, to neziņoja. Pie mums par ziņošanu nesoda.
+          </template>
+        </section>
+
+        <!-- 14 what's new GDPR -->
+        <section class="slide" data-title="Kas jauns VDAR">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Kas jauns 2025-2026</p>
+              <h2 class="headline">Daudz runā par atvieglojumiem. <em>72 stundas joprojām ir likums.</em></h2>
+            </div>
+            <div class="fill">
+              <ol class="rows">
+                <li><span class="n">01</span><div><strong>Digitālais omnibuss (96 h, šaurāka datu definīcija) ir iestrēdzis</strong><span>Vairāk nekā 1 750 grozījumu Parlamentā, trilogi nav sākti. Strādājam pēc esošajiem noteikumiem.</span></div></li>
+                <li><span class="n">02</span><div><strong>Datu akts spēkā no 12.09.2025</strong><span>Klientam jāspēj datus eksportēt un pāriet pie cita. Attiecas uz mūsu SaaS produktiem.</span></div></li>
+                <li><span class="n">03</span><div><strong>EDAK 2026: anonimizācija, skrāpēšana MI vajadzībām, sodu vadlīnijas</strong><span>Virziens ir stingrāks, ne vieglāks. MI modelis nav automātiski anonīms.</span></div></li>
+                <li><span class="n">04</span><div><strong>Uber 825 milj. EUR par pilnībā automatizētu kontu bloķēšanu</strong><span>Ja būvējam klientam scoring vai bloķēšanu, 22. pants prasa cilvēka lēmumu.</span></div></li>
+              </ol>
+            </div>
+          </div>
+          <div class="foot"><p class="source">EDPB konsultāciju lapa, 10.2026; Acompli par omnibusa statusu, 09.2026; Nīderlandes AP par Uber, 08.2026 (sekundāri avoti, pārbaudāmi pirms citēšanas)</p></div>
+          <template class="notes">
+            Vissvarīgākais jaunums ir negatīvs: VDAR teksts nav mainīts. Ja kāds saka "tagad ir 96 stundas", tā ir tikai Komisijas priekšlikums no 2025. gada novembra.
+            Omnibusa statuss var mainīties novembrī un decembrī, pirms sesijas pārbaudīt.
+            Procesuālā regula pārrobežu sūdzībām sāk darboties 02.04.2027, mums tieši neko nemaina.
+            Uber: izstrādātājiem svarīgs, jo tā ir loģika, ko mēs būvējam klientiem.
+          </template>
+        </section>
+
+        <!-- 15 divider -->
+        <section class="slide slide--divider" data-title="MI rīki" data-theme="dark">
+          <div class="center">
+            <p class="divider-index">03</p>
+            <h2 class="headline headline--lg">MI rīki</h2>
+          </div>
+          <template class="notes">Šo daļu vada Edgars. 15 minūtes ar Gandalf demo.</template>
+        </section>
+
+        <!-- 16 account level table -->
+        <section class="slide" data-title="Konta līmenis">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">MI rīki</p>
+              <h2 class="headline">Konta līmenis nosaka, vai klienta kods kļūst par <em>treniņdatiem</em>.</h2>
+            </div>
+            <div class="fill">
+              <table class="table">
+                <thead><tr><th>Rīks</th><th>Trenē pēc noklusējuma</th><th>Glabā</th></tr></thead>
+                <tbody>
+                  <tr><td>ChatGPT Free / Plus (personīgais)</td><td>Jā, ja neizslēdz</td><td>Temporary Chat līdz 30 d.</td></tr>
+                  <tr><td>Claude Free / Pro (arī Claude Code uz tiem)</td><td>Jā, ja slēdzis ieslēgts</td><td>līdz 5 gadiem</td></tr>
+                  <tr><td>Gemini API bezmaksas līmenis</td><td>Jā, ar cilvēku pārskatīšanu</td><td>"neievadi konfidenciālus datus"</td></tr>
+                  <tr class="is-pick"><td>ChatGPT Team / API, Claude Team / API, Gemini Workspace</td><td>Nē</td><td>30 d.; atzīmētais līdz 2 g.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>Darbam tikai uzņēmuma konti. Klientu personas datus, atslēgas un neizlaistu kodu neielīmē nekur.</p>
+            <p class="source">OpenAI, Anthropic un Google datu lietošanas noteikumi, lasīti 10.2026</p>
+          </div>
+          <template class="notes">
+            Šis ir pārbaudāms vendoru dokumentos, nevis viedoklis. Personīgais konts trenē, uzņēmuma konts ne.
+            Netskope 2026: pirmkods ir 42 % no visiem datu pārkāpumiem MI rīkos. Kad uzņēmumi deva pārvaldītus kontus, personīgo kontu lietojums gada laikā krita no 78 % uz 47 %. Tas ir vienīgais izmērītais veids, kā to mainīt, tāpēc konti ir.
+            Juridiski: personīgais konts nozīmē, ka klienta dati nonāk pie apstrādātāja bez 28. panta līguma, neatkarīgi no treniņu politikas. "Izdzēsu čatu" nav atbilde, ja atzīmētais glabājas 2 gadus.
+            Apņemšanās: personīgo MI kontu izslēgt no darba lietām šonedēļ.
+          </template>
+        </section>
+
+        <!-- 17 prompt injection diagram -->
+        <section class="slide" data-title="Injekcija">
+          <div class="split">
+            <div>
+              <p class="eyebrow">Aģenti</p>
+              <h2 class="headline">Aģents izpilda instrukcijas, kas <em>paslēptas tiketā</em>.</h2>
+              <p class="lede">Modelis neatšķir instrukciju no datiem. Tiketi, e-pasti, lapas un ielūgumi aģentam ir neuzticama ievade.</p>
+            </div>
+            <svg class="diagram" viewBox="0 0 940 420" role="img" aria-label="Plūsma: Jira komentārs ar slēptu instrukciju, MI aģents lasa caur MCP, izpilda ar izstrādātāja tiesībām, privātais repo un atslēgas aizplūst.">
+              <defs>
+                <marker id="arrow-s17" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="arrow" d="M0 0 L10 5 L0 10z"/></marker>
+                <marker id="arrow-accent-s17" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="arrow--accent" d="M0 0 L10 5 L0 10z"/></marker>
+              </defs>
+              <path class="edge" d="M210 210 H246" marker-end="url(#arrow-s17)"/>
+              <path class="edge" d="M446 210 H482" marker-end="url(#arrow-s17)"/>
+              <path class="edge edge--flow" d="M682 210 H718" marker-end="url(#arrow-accent-s17)"/>
+              <g class="node"><rect x="10" y="140" width="200" height="140" rx="16"/><text x="110" y="200" text-anchor="middle">Jira komentārs</text><text class="sub" x="110" y="230" text-anchor="middle">ar slēptu instrukciju</text></g>
+              <g class="node"><rect x="246" y="140" width="200" height="140" rx="16"/><text x="346" y="200" text-anchor="middle">MI aģents</text><text class="sub" x="346" y="230" text-anchor="middle">lasa caur MCP</text></g>
+              <g class="node node--accent"><rect x="482" y="140" width="200" height="140" rx="16"/><text x="582" y="200" text-anchor="middle">Izpilda</text><text class="sub" x="582" y="230" text-anchor="middle">ar tavām tiesībām</text></g>
+              <g class="node"><rect x="718" y="140" width="212" height="140" rx="16"/><text x="824" y="200" text-anchor="middle">Repo un atslēgas</text><text class="sub" x="824" y="230" text-anchor="middle">aizplūst</text></g>
+              <text class="label" x="30" y="350">Dokumentēts: GitHub MCP (05.2025), Agentjacking caur Sentry (06.2026), Replit izdzēš produkcijas DB (07.2025)</text>
+            </svg>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>Mazākās tiesības, viens repo sesijā, nekad --yolo, katra rakstīšana un sūtīšana ar apstiprinājumu.</p>
+            <p class="source">Invariant Labs, GitHub MCP, 05.2025; Cloud Security Alliance, Agentjacking, 06.2026; Replit gadījums, 07.2025</p>
+          </div>
+          <template class="notes">
+            Demo G (Edgars, 8 min): Lakera Gandalf 1.-3. līmenis uz lielā ekrāna, zāle sauc uzvednes. Tad "sarkanā komanda kolēģim": pāros mēģina izvilkt noslēpumu no mūsu platformas smilškastes čatbota.
+            Izstrādātājiem demo E: Jira vai Sentry komentārā paslēpta instrukcija, ko aģents caur MCP izpilda. Tieši tā strādāja Agentjacking.
+            GitHub MCP gadījums: ļaunprātīgs issue publiskā repo lika aģentam nopludināt privāto repo saturu. Replit: aģents izdzēsa produkcijas datubāzi, lai gan bija aizliegts ko mainīt.
+            Kontrole ir aģenta tiesību ierobežošana, nevis cerība, ka tas injekciju ignorēs.
+          </template>
+        </section>
+
+        <!-- 18 AI Act -->
+        <section class="slide" data-title="MI akts">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">MI akts</p>
+              <h2 class="headline">4. pants ir šodien. 50. pants: marķējums <em>līdz 02.12.2026</em>.</h2>
+            </div>
+            <div class="fill">
+              <ol class="rows">
+                <li><span class="n">01</span><div><strong>4. pants, MI pratība: spēkā no 02.02.2025</strong><span>Komisijas piemērs ir darbinieki, kas lieto ChatGPT un zina par halucinācijām. Šī sesija un dalībnieku saraksts ir mūsu ieraksts.</span></div></li>
+                <li><span class="n">02</span><div><strong>50. pants, caurspīdīgums: spēkā no 02.08.2026, nav atlikts</strong><span>Klientu čatboti saka, ka ir MI. Platformas ģenerētais saturs mašīnlasāmi marķēts līdz 02.12.2026.</span></div></li>
+                <li><span class="n">03</span><div><strong>Latvijā uzraugs gan VDAR, gan MI aktam ir DVI</strong><span>Tāpēc personas dati un MI rīki ir viena saruna, ne divas.</span></div></li>
+              </ol>
+            </div>
+          </div>
+          <div class="foot"><p class="source">Eiropas Komisija, AI literacy Q&amp;A, 27.07.2026; VARAM, MI akta faktu lapa, 08.2026; Regula 2026/1744</p></div>
+          <template class="notes">
+            Mēs esam divās lomās: uzturētājs tam, ko paši lietojam, un MI sistēmas nodrošinātājs tam, ko piegādājam klientiem.
+            Omnibuss (spēkā 27.07.2026) 4. pantu mīkstināja uz "saprātīgiem pasākumiem", bet nenoņēma. Augsta riska pienākumi atlikti uz 02.12.2027.
+            50. pants praktiski: čatbota paziņojums pirmajā saskarsmē, mašīnlasāms marķējums izvadei. Platformā teksts jau tiek marķēts, atvērts ir docx, xlsx un pdf metadatu robs līdz 02.12.2026.
+            Publiski teksti (blogs, LinkedIn) par sabiedrības interešu tēmām: vai nu marķēti, vai dokumentēti kā cilvēka rediģēti.
+          </template>
+        </section>
+
+        <!-- 19 reporting flow -->
+        <section class="slide" data-title="Ja kaut kas noticis">
+          <div class="stack">
+            <div class="head">
+              <p class="eyebrow">Ja kaut kas noticis</p>
+              <h2 class="headline">Ziņo tajā pašā dienā. Vispirms <em>rotē atslēgas</em>, tad skaidrojies.</h2>
+            </div>
+            <div class="fill">
+              <svg class="diagram" viewBox="0 0 1600 360" role="img" aria-label="Ziņošanas ķēde: tu pamani, ziņo security@ vai CTO tajā pašā dienā, CTO un COO 24 stundu laikā lemj par CERT.LV un klientu, 72 stundu laikā paziņojums DVI, ja skarti personas dati.">
+                <defs>
+                  <marker id="arrow-s19" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="arrow" d="M0 0 L10 5 L0 10z"/></marker>
+                </defs>
+                <path class="edge" d="M360 120 H420" marker-end="url(#arrow-s19)"/>
+                <path class="edge" d="M760 120 H820" marker-end="url(#arrow-s19)"/>
+                <path class="edge" d="M1160 120 H1220" marker-end="url(#arrow-s19)"/>
+                <g class="node"><rect x="20" y="50" width="340" height="140" rx="16"/><text x="190" y="110" text-anchor="middle">Tu pamani</text><text class="sub" x="190" y="142" text-anchor="middle">klikšķis, noslēpums, dati nepareizā vietā</text></g>
+                <g class="node node--accent"><rect x="420" y="50" width="340" height="140" rx="16"/><text x="590" y="110" text-anchor="middle">security@ vai CTO</text><text class="sub" x="590" y="142" text-anchor="middle">tajā pašā dienā, pa tālruni ja steidzami</text></g>
+                <g class="node"><rect x="820" y="50" width="340" height="140" rx="16"/><text x="990" y="110" text-anchor="middle">CTO un COO, 24 h</text><text class="sub" x="990" y="142" text-anchor="middle">lēmums par CERT.LV un klientu</text></g>
+                <g class="node"><rect x="1220" y="50" width="360" height="140" rx="16"/><text x="1400" y="110" text-anchor="middle">DVI, 72 h</text><text class="sub" x="1400" y="142" text-anchor="middle">ja skarti personas dati, klienta vārdā</text></g>
+                <text class="label" x="20" y="290">Ja nestrādā Slack vai Google: krīzes kanāls ir WhatsApp grupa "Mitigate krīze", tad SMS (MIT-04)</text>
+              </svg>
+            </div>
+          </div>
+          <div class="foot">
+            <p class="so"><b>So:</b>Par ziņošanu nesoda. Soda klusēšana, un tā maksā klientam.</p>
+            <p class="source">Mitigate MIT-01-AP, 11. sadaļa; MIT-04 Darbības nepārtrauktības plāns; Personas datu aizsardzības pārkāpuma procedūra</p>
+          </div>
+          <template class="notes">
+            Tas ir viss, kas darbiniekam jāatceras: pamanīji, ziņo tajā pašā dienā. Pārējo ķēdi tur CTO un COO.
+            Ja ielīmēji atslēgu vai noslēpumu: vispirms rotē, tad ziņo, tad skaidrojies. Secība ir svarīga, jo atslēga tiek izmantota minūtēs.
+            Ziņošanas kultūra ir vienīgā kontrole, ko nevar nopirkt. LVM stāsts ir tieši par to, ka brīdinājums nenonāca pie otra pāra acu.
+            Galda vingrinājums (20 min, ja 90 minūšu versija): "piektdiena 17:00, klienta vidē sākas šifrēšana". Lomu kartītes: CEO, COO, CTO, PM, izstrādātājs, biroja vadītāja, klients, žurnālists.
+          </template>
+        </section>
+
+        <!-- 20 closing -->
+        <section class="slide" data-title="Trīs apņemšanās" data-theme="dark">
+          <div class="center">
+            <p class="eyebrow">Šonedēļ</p>
+            <h2 class="headline headline--lg">Trīs lietas, ko <em>izdari līdz piektdienai</em>.</h2>
+            <p class="lede">1. Passkey Google un GitHub kontam. 2. Personīgo MI kontu nost no darba, uzņēmuma konts vietā. 3. Vienojies ar savu PM par atzvanīšanas noteikumu naudas un piekļuves pieprasījumiem.</p>
+            <div class="contact">security@mitigate.dev <span>Jautājumi un ziņojumi, bez vainas meklēšanas</span></div>
+          </div>
+          <template class="notes">
+            Katrs ieraksta savas trīs darbības Mentimeter vai kartītē. Tās ir tehniskas un pārbaudāmas, nevis "būšu uzmanīgāks".
+            Tagad 10 jautājumu tests: [TESTA SAITE]. Tas pats pēc 3 nedēļām. Pikšķerēšanas simulācija bija pirms sesijas, būs atkārtota pēc 6-8 nedēļām, skatīsimies gan klikšķus, gan ziņošanu.
+            Godīgi: pētījumi saka, ka viena sesija zināšanas maina, uzvedību maz. Uzvedību maina passkey un uzņēmuma konti. Tāpēc tās ir apņemšanās, nevis slaidi.
+          </template>
+        </section>

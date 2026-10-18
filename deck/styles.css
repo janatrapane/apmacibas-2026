@@ -1,0 +1,272 @@
+/* Presentation styles. The stage is a fixed 1920x1080 canvas scaled to the
+   window, so every size below is in projector pixels.
+   To brand a deck, change the BRAND block only. Everything else derives from it. */
+
+@font-face { font-family: "Manrope"; src: url("assets/fonts/Manrope.ttf") format("truetype"); font-weight: 200 800; font-display: block; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.ttf") format("truetype"); font-style: italic; font-display: block; }
+
+:root {
+  /* ---------- BRAND: the only block to edit per deck ----------
+     Default is Mitigate (teal + mint from the logo, navy text). For another
+     brand, change these values and replace assets/brand/logo*.svg. */
+  --ink: #17213d;            /* text: a deep navy reads softer than black on a projector */
+  --paper: #fbfcfc;          /* canvas: near-white, never grey */
+  --accent: #008b8a;         /* the key phrase of a headline, eyebrows, the one highlighted datum */
+  --accent-2: #1cb499;       /* a second data series and the background glow; never decoration */
+  --dark: #0a1128;           /* canvas of dark slides */
+  --font: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  /* ------------------------------------------------------------ */
+
+  --ink-2: color-mix(in srgb, var(--ink) 74%, transparent);
+  --ink-muted: color-mix(in srgb, var(--ink) 56%, transparent);
+  --ink-faint: color-mix(in srgb, var(--ink) 32%, transparent);
+  --line: color-mix(in srgb, var(--ink) 11%, transparent);
+  --line-strong: color-mix(in srgb, var(--ink) 22%, transparent);
+  --accent-deep: color-mix(in srgb, var(--accent) 78%, black);
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, white);
+  --accent-on-dark: color-mix(in srgb, var(--accent) 45%, white);
+  --card: rgba(255, 255, 255, 0.84);
+  --ok: #2f8f6a;
+  --risk: #c2515b;
+
+  --pad-x: 128px;
+  --pad-top: 104px;
+  --pad-bottom: 136px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --stage-scale: 1;
+  --stage-x: 0px;
+  --stage-y: 0px;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--paper); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+h1, h2, h3, p, ol, ul, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+img, video, svg { display: block; }
+button { font: inherit; color: inherit; }
+
+/* ---------- field: painted across the whole window, so non-16:9 screens get no letterbox ---------- */
+#viewport {
+  position: fixed; inset: 0; overflow: hidden;
+  background:
+    radial-gradient(ellipse 48% 60% at 86% 10%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 6% 96%, color-mix(in srgb, var(--accent-2) 8%, transparent), transparent 70%),
+    radial-gradient(circle at 50% 50%, transparent 42%, rgba(255, 255, 255, 0.72) 100%),
+    radial-gradient(circle, color-mix(in srgb, var(--ink) 11%, transparent) 1px, transparent 1.3px),
+    var(--paper);
+  background-size: auto, auto, auto, 28px 28px, auto;
+}
+html[data-theme="dark"] #viewport {
+  background:
+    radial-gradient(ellipse 55% 70% at 88% 92%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 8% 10%, color-mix(in srgb, var(--accent-2) 30%, transparent), transparent 70%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1.3px),
+    var(--dark);
+  background-size: auto, auto, 28px 28px, auto;
+}
+html[data-theme="black"] #viewport { background: #000; }
+
+#stage {
+  position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; outline: none;
+  transform: translate3d(var(--stage-x), var(--stage-y), 0) scale(var(--stage-scale));
+  transform-origin: 0 0;
+}
+/* A bleeding visual must be clipped by the window, not the stage, or it shows a
+   hard seam mid-screen on any window that is not 16:9. */
+#stage:has(.slide--bleed.is-active) { overflow: visible; }
+
+/* Only the active slide renders: phones do not hold every slide's layers in memory. */
+.slide { position: absolute; inset: 0; padding: var(--pad-top) var(--pad-x) var(--pad-bottom); display: none; }
+.slide.is-active { display: block; animation: slide-in 0.45s var(--ease); }
+@keyframes slide-in { from { opacity: 0; } to { opacity: 1; } }
+.slide[data-theme="dark"] { color: #fff; }
+
+.build { opacity: 0; }
+.build.is-visible { opacity: 1; }
+
+/* ---------- chrome: quiet counter, optional logo, thin progress ---------- */
+.chrome {
+  position: absolute; right: var(--pad-x); bottom: 44px; z-index: 30;
+  display: flex; align-items: center; gap: 16px;
+  font-size: 15px; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-faint);
+  font-variant-numeric: tabular-nums; pointer-events: none;
+}
+.chrome-logo { height: 22px; width: auto; opacity: 0.75; }
+.chrome-logo--white, html[data-theme="dark"] .chrome-logo--dark { display: none; }
+html[data-theme="dark"] .chrome-logo--white { display: block; opacity: 0.6; }
+html[data-theme="dark"] .chrome { color: rgba(255, 255, 255, 0.35); }
+#stage:has(.slide[data-chrome="off"].is-active) .chrome,
+#stage:has(.slide[data-chrome="off"].is-active) .progress { opacity: 0; }
+.progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; z-index: 30; }
+#progress-bar { display: block; height: 100%; width: 0; background: var(--accent); opacity: 0.7; transition: width 0.5s var(--ease); }
+html.is-blank .blank-screen { position: fixed; inset: 0; background: #000; z-index: 100; }
+
+/* ---------- type scale (projector px). Nothing the audience must read goes below 22px. ---------- */
+.eyebrow { font-size: 18px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+.headline { font-size: 68px; line-height: 1.06; font-weight: 750; letter-spacing: -0.028em; max-width: 1500px; text-wrap: balance; }
+.headline--lg { font-size: 88px; }
+.headline--xl { font-size: 112px; line-height: 0.98; letter-spacing: -0.036em; }
+.headline em, .accent { font-style: normal; color: var(--accent); }
+.lede { font-size: 30px; line-height: 1.42; font-weight: 500; color: var(--ink-2); margin-top: 26px; max-width: 980px; text-wrap: pretty; }
+.body { font-size: 28px; line-height: 1.5; color: var(--ink-2); max-width: 820px; }
+.small { font-size: 22px; line-height: 1.45; color: var(--ink-muted); }
+.slide[data-theme="dark"] .eyebrow { color: var(--accent-on-dark); }
+.slide[data-theme="dark"] .headline em, .slide[data-theme="dark"] .accent { color: var(--accent-on-dark); }
+.slide[data-theme="dark"] .lede, .slide[data-theme="dark"] .body { color: rgba(255, 255, 255, 0.74); }
+
+/* ---------- foot: the "So:" takeaway and the source line, pinned to the same place on every slide ---------- */
+.foot { position: absolute; left: var(--pad-x); right: 360px; bottom: 60px; display: grid; gap: 14px; }
+.so { font-size: 28px; line-height: 1.35; font-weight: 600; }
+.so b { color: var(--accent); font-weight: 700; margin-right: 10px; }
+.source { font-size: 16px; line-height: 1.5; font-weight: 500; color: var(--ink-muted); }
+.slide[data-theme="dark"] .source { color: rgba(255, 255, 255, 0.45); }
+
+/* ---------- layouts ---------- */
+.stack { display: flex; flex-direction: column; height: 100%; }
+.stack > .fill { flex: 1; min-height: 0; display: flex; align-items: center; }
+.center { height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.split { display: grid; grid-template-columns: 5fr 7fr; gap: 104px; align-items: center; height: 100%; }
+.split--even { grid-template-columns: 1fr 1fr; }
+.split--wide-left { grid-template-columns: 7fr 5fr; }
+.head { margin-bottom: 64px; }
+
+/* cover */
+.slide--cover .center { max-width: 1240px; }
+.slide--cover .headline { font-size: 120px; letter-spacing: -0.04em; line-height: 0.96; }
+.slide--cover .lede { font-size: 34px; margin-top: 36px; }
+.byline { position: absolute; left: var(--pad-x); bottom: 64px; display: flex; align-items: center; gap: 28px; font-size: 20px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.01em; }
+.byline img { height: 34px; width: auto; }
+.cover-visual { position: absolute; right: -120px; top: 50%; width: 900px; height: 900px; transform: translateY(-50%); pointer-events: none; }
+
+/* divider (section break) */
+.slide--divider .center { max-width: 1400px; }
+.divider-index { font-size: 200px; font-weight: 200; line-height: 1; letter-spacing: -0.04em; color: var(--accent); margin-bottom: 24px; font-variant-numeric: tabular-nums; }
+.slide[data-theme="dark"] .divider-index { color: var(--accent-on-dark); }
+
+/* statement: one sentence carries the slide */
+.slide--statement .headline { font-size: 96px; max-width: 1480px; line-height: 1.04; }
+
+/* big numbers */
+.stats { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 96px; width: 100%; }
+.stat { border-top: 2px solid var(--ink); padding-top: 28px; }
+.stat-value { font-size: 184px; font-weight: 700; line-height: 0.92; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.stat-value small { font-size: 0.42em; font-weight: 600; letter-spacing: -0.02em; margin-left: 6px; color: var(--ink-muted); }
+.stat-label { font-size: 26px; line-height: 1.4; color: var(--ink-2); margin-top: 22px; max-width: 460px; }
+.stat--accent { border-top-color: var(--accent); }
+.stat--accent .stat-value { color: var(--accent); }
+
+/* meters: a shared 0-100 scale so bars compare honestly */
+.meters { width: 100%; display: grid; gap: 56px; }
+.meter { display: grid; grid-template-columns: 1fr 200px; column-gap: 40px; row-gap: 14px; align-items: end; }
+.meter-label { grid-column: 1 / -1; font-size: 18px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+.meter-well { position: relative; height: 44px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 5%, transparent); overflow: hidden; }
+.meter-fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 4px; }
+.meter--low .meter-fill { background: var(--ink); }
+.meter-value { font-size: 72px; font-weight: 700; line-height: 0.9; letter-spacing: -0.04em; text-align: right; font-variant-numeric: tabular-nums; }
+.meter:not(.meter--low) .meter-value { color: var(--accent); }
+
+/* rows: hairline list, one line of claim + one line of detail */
+.rows { width: 100%; max-width: 1480px; border-top: 1px solid var(--line-strong); }
+.rows li { display: grid; grid-template-columns: 88px 1fr; column-gap: 24px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.rows .n { font-size: 24px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; padding-top: 6px; }
+.rows strong { display: block; font-size: 36px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; }
+.rows span { display: block; font-size: 25px; line-height: 1.45; color: var(--ink-2); margin-top: 8px; }
+
+/* columns: two or three parallel ideas, no boxes */
+.cols { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 80px; width: 100%; }
+.cols h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.01em; padding-top: 24px; border-top: 2px solid var(--accent); margin-bottom: 16px; }
+.cols p { font-size: 26px; line-height: 1.5; color: var(--ink-2); }
+
+/* table */
+.table { width: 100%; border-collapse: collapse; font-size: 26px; line-height: 1.4; }
+.table th { text-align: left; font-size: 17px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); padding: 0 32px 18px 0; border-bottom: 2px solid var(--ink); }
+.table td { padding: 26px 32px 26px 0; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-2); }
+.table td:first-child { font-weight: 700; color: var(--ink); width: 26%; }
+.table tr.is-pick td { color: var(--ink); }
+.table tr.is-pick td:first-child { color: var(--accent); }
+
+/* quiet cards: use sparingly, three at most */
+.cards { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 32px; width: 100%; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 40px; box-shadow: 0 20px 60px -30px color-mix(in srgb, var(--ink) 25%, transparent); }
+.card h3 { font-size: 30px; font-weight: 700; margin-bottom: 12px; }
+.card p { font-size: 24px; line-height: 1.5; color: var(--ink-2); }
+
+/* quote */
+.quote { max-width: 1400px; }
+.quote p { font-family: var(--font-serif); font-style: italic; font-size: 92px; line-height: 1.08; letter-spacing: -0.01em; }
+.quote p::before { content: "“"; color: var(--accent); }
+.quote p::after { content: "”"; color: var(--accent); }
+.quote footer { margin-top: 44px; font-size: 26px; font-weight: 600; color: var(--ink-muted); }
+
+/* figures: screenshots in a quiet window frame; full-bleed media */
+.window { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 100px -40px color-mix(in srgb, var(--ink) 40%, transparent); }
+.window-bar { height: 44px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); background: #f6f7fa; }
+.window-bar i { width: 12px; height: 12px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 16%, transparent); }
+.window-bar span { margin-left: 14px; font-size: 16px; font-weight: 600; color: var(--ink-muted); }
+.window img, .window video { width: 100%; height: auto; }
+.window-empty { aspect-ratio: 16 / 10; display: grid; place-items: center; font-size: 24px; color: var(--ink-muted); background: repeating-linear-gradient(135deg, transparent 0 14px, var(--line) 14px 15px); }
+.caption { font-size: 20px; line-height: 1.45; color: var(--ink-muted); margin-top: 20px; }
+.slide--media { padding: 0; background: #000; }
+.slide--media video, .slide--media img, .slide--media iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; border: 0; }
+
+/* closing */
+.contact { margin-top: 64px; display: grid; gap: 10px; font-size: 28px; font-weight: 600; }
+.contact span { color: var(--ink-muted); font-weight: 500; }
+.slide[data-theme="dark"] .contact span { color: rgba(255, 255, 255, 0.55); }
+
+/* ---------- SVG diagrams: colours come from the tokens, so a rebrand recolours them ---------- */
+.diagram { width: 100%; height: auto; overflow: visible; font-family: var(--font); }
+.diagram .node rect { fill: #fff; stroke: var(--line-strong); stroke-width: 1.5; }
+.diagram .node text { fill: var(--ink); font-size: 24px; font-weight: 650; }
+.diagram .node .sub { fill: var(--ink-muted); font-size: 17px; font-weight: 500; }
+.diagram .node--accent rect { fill: var(--accent); stroke: var(--accent); }
+.diagram .node--accent text, .diagram .node--accent .sub { fill: #fff; }
+.diagram .node--slow rect { fill: var(--accent-soft); stroke: var(--accent); stroke-dasharray: 6 6; }
+.diagram .edge { fill: none; stroke: var(--ink-faint); stroke-width: 2; }
+.diagram .edge--flow { stroke: var(--accent); stroke-dasharray: 8 10; animation: flow 1.2s linear infinite; }
+.diagram .arrow { fill: var(--ink-faint); }
+.diagram .arrow--accent { fill: var(--accent); }
+.diagram .label { fill: var(--ink-muted); font-size: 17px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.diagram .label--accent { fill: var(--accent); }
+@keyframes flow { to { stroke-dashoffset: -36; } }
+/* Ambient motion runs only while its slide is on screen. */
+.slide:not(.is-active) .diagram * { animation-play-state: paused; }
+
+/* ---------- placeholders: [ALL CAPS] is marked by deck.js ---------- */
+mark.ph { background: #fff3b0; color: #6b5200; outline: 2px dashed #e0b400; outline-offset: 2px; border-radius: 4px; padding: 0 6px; }
+.diagram text.ph-svg { fill: #b08900; text-decoration: underline dashed; }
+
+/* ---------- overlays: slide list (T) and help (H) ---------- */
+.overlay { position: fixed; inset: 0; z-index: 90; display: none; place-items: center; background: rgba(7, 11, 31, 0.5); backdrop-filter: blur(6px); }
+.overlay.is-open { display: grid; }
+.overlay-panel { width: min(880px, 92vw); max-height: 86vh; overflow: auto; background: #fff; color: #141a33; border-radius: 18px; padding: 28px 32px; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3); font-family: var(--font); }
+.overlay-panel--compact { width: min(560px, 92vw); }
+.overlay-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.overlay-head h2 { font-size: 22px; }
+.overlay-head button { border: 1px solid #d7d9e4; background: #fff; border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+#toc-list button { width: 100%; text-align: left; border: 0; background: none; padding: 9px 10px; border-radius: 8px; font-size: 16px; cursor: pointer; white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+#toc-list button:hover, #toc-list button[aria-current="true"] { background: #f0f0fb; }
+.keys { display: grid; grid-template-columns: auto 1fr; gap: 10px 24px; font-size: 16px; }
+.keys dt { font-weight: 700; }
+.ph-count { margin-top: 18px; font-size: 15px; color: #8a6d00; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* slide 5: six phishing screenshots stacked in one frame, revealed by builds */
+.split--phish { grid-template-columns: 4fr 8fr; gap: 72px; align-items: center; }
+.phish-stage { position: relative; }
+.phish-stage .window + .window { position: absolute; inset: 0; }
+.tells { list-style: none; margin-top: 18px; display: grid; gap: 7px; font-size: 22px; line-height: 1.35; color: var(--ink-2); }
+.tells li { display: grid; grid-template-columns: 34px 1fr; column-gap: 4px; }
+.tells b { color: var(--accent); }
+
+/* slide 7: audio player for the crisis-call demo */
+.player { display: flex; align-items: center; gap: 28px; margin: 10px 0 34px; }
+.player audio { width: 520px; height: 54px; }
+.player span { font-size: 26px; font-weight: 600; color: var(--ink-2); }
+.player--small { margin: 6px 0 18px; }
+.player--small audio { width: 420px; height: 44px; }
+.player--small span { font-size: 20px; font-weight: 500; color: var(--ink-muted); }

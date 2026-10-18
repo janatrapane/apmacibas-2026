@@ -1,0 +1,15 @@
+# Avoti (pilns saraksts ar saitēm: reports/GDPR un kiberdrošības apmācības 2026.md)
+- S2, S4, S11, S13: DVI 2025. gada pārskats; LSM 17.08.2026 (LVM); CERT.LV LVM incidenta lapa
+- S3: CERT.LV pārskats 4.C/2025; Mandiant M-Trends 2026
+- S4: SAB BUJ ārpakalpojumu prasības 03.2026; NKDC
+- S5: CERT.LV 4.C/2025 zīmolu sadalījums; UC San Diego RCT 2025 (1,82 % / 30,8 %)
+- S6: CERT.LV kiberlaikapstākļi 09.2026; FBI IC3 PSA260901
+- S7: Reuters/Biometric Update par Fideuram 10.2026 [S]; Motor1/Bloomberg Ferrari [S]; LV portāls/Luminor 09.2025
+- S8: Unit 42, CISA (Shai-Hulud); Wiz, Semgrep (tj-actions); Wiz, GitGuardian (Nx); Comparitech honeypot [S]
+- S9: Microsoft DDR 2025 caur The Record; MIT-01-AP
+- S11: CNIL/IQVIA caur Skillcast [S]; LV portāls CSDD 08.2026
+- S14: EDPB konsultācijas 10.2026; Acompli omnibusa statuss 09.2026 [S]; PPC Land Uber [S]; BCLP Datu akts [S]
+- S16: OpenAI "Your data", Anthropic retention + consumer terms, Google Gemini API terms, Workspace GenAI privacy hub (10.2026); Netskope 2026 [S]
+- S17: Invariant Labs GitHub MCP; CSA Agentjacking; eWeek Replit
+- S18: EC AI literacy Q&A 27.07.2026; VARAM MI akta lapa; COBALT par Reg. 2026/1744 [S]
+- S19: MIT-01-AP, MIT-04, personas datu pārkāpuma procedūra
