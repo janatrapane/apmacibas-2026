@@ -256,7 +256,15 @@ mark.ph { background: #fff3b0; color: #6b5200; outline: 2px dashed #e0b400; outl
 }
 
 /* slide 5: six phishing screenshots stacked in one frame, revealed by builds */
-.split--phish { grid-template-columns: 4fr 8fr; gap: 72px; align-items: center; }
+.split--phish { grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+.verdicts { display: grid; margin-top: 26px; }
+.verdicts > .build { grid-area: 1 / 1; }
+.verdicts > .build.is-past { visibility: hidden; }
+.v-label { font-size: 30px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.v-fake { color: var(--risk); }
+.v-real { color: var(--ok); }
+.verdict .tells { margin-top: 10px; }
+.v-do { margin-top: 14px; font-size: 22px; line-height: 1.4; font-weight: 600; color: var(--ink); }
 .phish-stage { position: relative; }
 .phish-stage .window + .window { position: absolute; inset: 0; }
 .tells { list-style: none; margin-top: 18px; display: grid; gap: 7px; font-size: 22px; line-height: 1.35; color: var(--ink-2); }

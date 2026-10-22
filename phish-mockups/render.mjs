@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const out = path.resolve(here, "../deck/assets/images");
-const files = ["01-csdd","02-ibanka","03-vid","04-drive","05-harvest","06-atvalinajumi"];
+const files = process.argv.slice(2).length ? process.argv.slice(2) : ["01-csdd","02-ibanka","03-vid","04-drive","04b-google-ists","05-harvest","06-atvalinajumi"];
 let browser;
 for (const channel of ["chrome","msedge",undefined]) { try { browser = await chromium.launch(channel?{channel}:{}); break; } catch {} }
 const page = await browser.newPage({ viewport: { width: 1400, height: 900 }, deviceScaleFactor: 1 });
